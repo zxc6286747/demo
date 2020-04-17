@@ -1,15 +1,15 @@
 
 # VERSION 0.0.1
 # Author: eangulee
-# 基础镜像使用java
+# 鍩虹闀滃儚浣跨敤java
 FROM java:8
-# 作者
+# 浣滆��
 MAINTAINER eangulee <eangulee@gmail.com>
-# VOLUME 指定了临时文件目录为/tmp。
-# 其效果是在主机 /var/lib/docker 目录下创建了一个临时文件，并链接到容器的/tmp
+# VOLUME 鎸囧畾浜嗕复鏃舵枃浠剁洰褰曚负/tmp銆�
+# 鍏舵晥鏋滄槸鍦ㄤ富鏈� /var/lib/docker 鐩綍涓嬪垱寤轰簡涓�涓复鏃舵枃浠讹紝骞堕摼鎺ュ埌瀹瑰櫒鐨�/tmp
 VOLUME /tmp 
-# 将jar包添加到容器中并更名为app.jar
+# 灏唈ar鍖呮坊鍔犲埌瀹瑰櫒涓苟鏇村悕涓篴pp.jar
 ADD demo-0.0.1-SNAPSHOT.jar app.jar 
-# 运行jar包
+# 杩愯jar鍖�
 RUN bash -c 'touch /app.jar'
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","--server.port=1000","/app.jar"]
