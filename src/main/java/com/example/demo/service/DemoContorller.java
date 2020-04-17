@@ -8,7 +8,7 @@ public class DemoContorller {
 	
 	@RequestMapping("/")
 	public String a() {
-		return "hello222";
+		return "你好hello";
 	}
 
 
